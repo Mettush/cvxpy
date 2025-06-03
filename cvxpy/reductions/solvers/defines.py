@@ -54,6 +54,7 @@ from cvxpy.reductions.solvers.qp_solvers.osqp_qpif import OSQP as OSQP_qp
 from cvxpy.reductions.solvers.qp_solvers.piqp_qpif import PIQP as PIQP_qp
 from cvxpy.reductions.solvers.qp_solvers.proxqp_qpif import PROXQP as PROXQP_qp
 from cvxpy.reductions.solvers.qp_solvers.xpress_qpif import XPRESS as XPRESS_qp
+from cvxpy.reductions.solvers.qp_solvers.fwjl_qpif import FWJL as FWJL_qp
 from cvxpy.utilities.versioning import Version
 
 solver_conic_intf = [DIFFCP_con(), ECOS_con(),
@@ -72,6 +73,7 @@ solver_qp_intf = [OSQP_qp(),
                   DAQP_qp(),
                   HIGHS_qp(),
                   MPAX_qp(),
+                  FWJL_qp()
                   ]
 
 SOLVER_MAP_CONIC = {solver.name(): solver for solver in solver_conic_intf}
@@ -94,7 +96,8 @@ QP_SOLVERS = [s.OSQP,
               s.PIQP,
               s.PROXQP,
               s.DAQP,
-              s.MPAX]
+              s.MPAX,
+              s.FWJL]
 DISREGARD_CLARABEL_SDP_SUPPORT_FOR_DEFAULT_RESOLUTION = True
 MI_SOLVERS = [s.GLPK_MI, s.MOSEK, s.GUROBI, s.CPLEX,
               s.XPRESS, s.CBC, s.SCIP, s.HIGHS, s.COPT, s.ECOS_BB]
